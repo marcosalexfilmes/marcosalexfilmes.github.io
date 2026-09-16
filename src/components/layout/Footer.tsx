@@ -5,9 +5,9 @@ const Footer = () => {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <Link to="/" className="font-bold tracking-tight text-lg">Orveka</Link>
+            <Link to="/" className="font-bold tracking-tight text-lg">Marcos Alex</Link>
             <p className="mt-4 text-muted-foreground max-w-xs">
-              Accelerate business growth with strategic advertising
+              Visual storytelling to add value to your brand
             </p>
           </div>
 
@@ -24,15 +24,15 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex flex-col gap-3 text-muted-foreground">
-              <span>Hello@orveka.studio</span>
-              <span>New York, NY</span>
+              <span>marcosalexov@gmail.com</span>
+              <span>CwB/PR - Brazil</span>
             </div>
           </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Orveka Studio. All rights reserved.
+            © {currentYear} Marcos Alex. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
             Crafted with intention
