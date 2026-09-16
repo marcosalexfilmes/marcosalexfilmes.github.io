@@ -138,7 +138,7 @@ const Index = () => {
                 </span>
                 <h3 className="text-xl mb-2 font-normal">Visual Storytelling</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  95% customer satisfaction rate
+                  &nbsp;Capturing moments isn’t just about kepping the quality, the story behind is what captures the eyes.
                 </p>
               </div>
             </StaggerItem>
@@ -154,7 +154,7 @@ const Index = () => {
                 </span>
                 <h3 className="text-xl mb-2 font-normal">Brand Impact</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Creating memorable brand experiences that resonate with audiences
+                  Every brand has its on way, every production should follow it. The creative direction is based on the brand essence.
                 </p>
               </div>
             </StaggerItem>
@@ -166,11 +166,11 @@ const Index = () => {
                   <BarChart3 className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-xs font-medium tracking-wider uppercase text-white/50 mb-2 block">
-                  QUALITY
+                  FILMMAKING
                 </span>
                 <h3 className="text-xl mb-2 font-normal">Uncompromising Quality</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Analyzed user behavior for a 25% engagement boost.
+                  From documentaries to event aftermovies. The language behind changes, but always with pourpose and along the client desire.
                 </p>
               </div>
             </StaggerItem>
@@ -182,11 +182,11 @@ const Index = () => {
                   <ClipboardCheck className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-xs font-medium tracking-wider uppercase text-white/50 mb-2 block">
-                  Management
+                  PHOTOGRAPHY
                 </span>
-                <h3 className="text-xl mb-2 font-normal">Agile Management</h3>
+                 <h3 className="text-xl mb-2 font-normal">Moments to be Remembered</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Led teams to achieve milestones early.
+                  Experience on event and general portraits photography. As well capturing travel photos.
                 </p>
               </div>
             </StaggerItem>
