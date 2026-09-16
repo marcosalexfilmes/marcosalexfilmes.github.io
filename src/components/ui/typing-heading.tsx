@@ -11,7 +11,11 @@ interface TypingHeadingProps {
 export function TypingHeading({
   className
 }: TypingHeadingProps) {
-  const fullText = `${HERO_HEADING_LINE_1} ${HERO_HEADING_LINE_2}`;
+  // No second line: type only line 1 and keep the cursor on it
+  const hasLine2 = HERO_HEADING_LINE_2.trim().length > 0;
+  const fullText = hasLine2
+    ? `${HERO_HEADING_LINE_1} ${HERO_HEADING_LINE_2}`
+    : HERO_HEADING_LINE_1;
   const {
     displayedText,
     showCursor,
@@ -31,14 +35,14 @@ export function TypingHeading({
   return <h1 className={cn("text-5xl md:text-7xl tracking-tight text-white leading-[0.95] lg:text-6xl font-light", className)} aria-label={fullText}>
       <span className="inline text-4xl">
         {displayedLine1}
-        {/* Show cursor on line 1 if still typing line 1 */}
-        {showCursor && displayedText.length <= line1Length && <span className={cn("inline-block w-[3px] h-[0.9em] bg-white ml-1 align-middle", !isComplete && "animate-pulse")} aria-hidden="true" />}
+        {/* Show cursor on line 1 while typing (always, when there is no line 2) */}
+        {showCursor && (!hasLine2 || displayedText.length <= line1Length) && <span className={cn("inline-block w-[3px] h-[0.9em] bg-white ml-1 align-middle", !isComplete && "animate-pulse")} aria-hidden="true" />}
       </span>
-      <span className="block mt-2 text-4xl">
+      {hasLine2 && <span className="block mt-2 text-4xl">
         {displayedLine2}
         {/* Show cursor on line 2 if typing line 2 */}
         {showCursor && displayedText.length > line1Length && <span className={cn("inline-block w-[3px] h-[0.9em] bg-white ml-1 align-middle", !isComplete && "animate-pulse")} aria-hidden="true" />}
-      </span>
+      </span>}
       {/* Hidden text for screen readers */}
       <span className="sr-only">{fullText}</span>
     </h1>;
