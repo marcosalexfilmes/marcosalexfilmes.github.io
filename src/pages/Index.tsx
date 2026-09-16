@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Users, Palette, Eye, Sparkles, BarChart3, ClipboardCheck } from "lucide-react";
+import { ArrowRight, Zap, Users, Palette, Eye, Sparkles, Clapperboard, ClipboardCheck } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { usePortfolioList } from "@/hooks/usePortfolio";
 import PortfolioSlider from "@/components/portfolio/PortfolioSlider";
@@ -163,7 +163,7 @@ const Index = () => {
             <StaggerItem>
               <div className="group p-6 rounded-4xl bg-white/5 hover:bg-white/10 transition-all duration-500">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                  <BarChart3 className="w-6 h-6 text-white" />
+                  <Clapperboard className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-xs font-medium tracking-wider uppercase text-white/50 mb-2 block">
                   FILMMAKING
