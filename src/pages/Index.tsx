@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Users, Palette, Eye, Sparkles, Clapperboard, Camera } from "lucide-react";
+import { ArrowRight, Zap, Eye, Sparkles, Clapperboard, Camera } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { usePortfolioList } from "@/hooks/usePortfolio";
 import PortfolioSlider from "@/components/portfolio/PortfolioSlider";
@@ -94,40 +94,8 @@ const Index = () => {
           </SectionHeader>
 
           {/* Features Grid */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* Seamless Collaboration */}
-            <StaggerItem>
-              <div className="group p-6 rounded-4xl bg-white/5 hover:bg-white/10 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xs font-medium tracking-wider uppercase text-white/50 mb-2 block">
-                  EXPERIENCE
-                </span>
-                <h3 className="text-xl mb-2 font-normal">Seamless Experience</h3>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  Delivered 50+ projects driving tangible results for companies
-                </p>
-              </div>
-            </StaggerItem>
-
-            {/* Design Solutions */}
-            <StaggerItem>
-              <div className="group p-6 rounded-4xl bg-white/5 hover:bg-white/10 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                  <Palette className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xs font-medium tracking-wider uppercase text-white/50 mb-2 block">
-                  Design
-                </span>
-                <h3 className="text-xl mb-2 font-normal">Design Solutions</h3>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  Improved 30+ user experiences for satisfaction.
-                </p>
-              </div>
-            </StaggerItem>
-
-            {/* Boosted Brand Visibility */}
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Visual Storytelling */}
             <StaggerItem>
               <div className="group p-6 rounded-4xl bg-white/5 hover:bg-white/10 transition-all duration-500">
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
