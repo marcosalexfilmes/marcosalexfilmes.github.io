@@ -11,7 +11,20 @@ import roma195 from "@/assets/roma/Roma-195.jpg";
 import roma153 from "@/assets/roma/Roma-153.jpg";
 import roma53 from "@/assets/roma/Roma-53.jpg";
 
+// Imagens locais (src/assets/granprix).
+import gp1 from "@/assets/granprix/gp-1.jpg";
+import gp2 from "@/assets/granprix/gp-2.jpg";
+import gp3 from "@/assets/granprix/gp-3.jpg";
+import gp4 from "@/assets/granprix/gp-4.jpg";
+import gp5 from "@/assets/granprix/gp-5.jpg";
+import gp6 from "@/assets/granprix/gp-6.jpg";
+import gp7 from "@/assets/granprix/gp-7.jpg";
+import gp8 from "@/assets/granprix/gp-8.jpg";
+import gp9 from "@/assets/granprix/gp-9.jpg";
+import gp10 from "@/assets/granprix/gp-10.jpg";
+
 const ROMA_ID = "roma-la-conquista";
+const GP_ID = "gran-prix-ademicon";
 const NOW = "2026-08-22T23:56:48.756Z";
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -30,9 +43,24 @@ export const portfolioProjects: PortfolioProject[] = [
     created_at: NOW,
     updated_at: NOW,
   },
+  {
+    id: GP_ID,
+    title: "Gran Prix Ademicon",
+    slug: "gran-prix-ademicon",
+    category: "VIDEO & PHOTOGRAPHY",
+    description:
+      'A campanha de incentivo "Gran Prix Ademicon", levou os melhores vendedores para Montevidéu, Uruguai. Desde cenários urbanos impressionantes até momentos de grande emoção e velocidade, a essência da corrida juntamente aos representantes da marca é relembrada nas fotos e no registro em vídeo da viagem.',
+    year: 2025,
+    preview_image_1: gp1,
+    preview_image_2: gp3,
+    preview_image_3: gp8,
+    preview_image_4: gp10,
+    created_at: NOW,
+    updated_at: NOW,
+  },
 ];
 
-const media = (
+const makeMedia = (project_id: string) => (
   id: string,
   media_type: PortfolioMedia["media_type"],
   url: string,
@@ -41,7 +69,7 @@ const media = (
   caption: string | null,
 ): PortfolioMedia => ({
   id,
-  project_id: ROMA_ID,
+  project_id,
   media_type,
   url,
   poster_url: null,
@@ -51,6 +79,10 @@ const media = (
   created_at: NOW,
   updated_at: NOW,
 });
+
+const media = makeMedia(ROMA_ID);
+const gpMedia = makeMedia(GP_ID);
+
 
 export const portfolioMedia: PortfolioMedia[] = [
   media("roma-1", "image", roma199, 1, null, "A cúpula da Basílica de São Pedro iluminada pelo pôr do sol"),
@@ -78,4 +110,32 @@ export const portfolioMedia: PortfolioMedia[] = [
     "Travel highlight video",
     "Os melhores momentos da viagem em um vídeo dinâmico com os destaques da experiência.",
   ),
+
+  gpMedia("gp-1", "image", gp1, 1, null, "Montevidéu ao amanhecer: a rambla emergindo da névoa sobre o Rio da Prata"),
+  gpMedia("gp-2", "image", gp2, 2, null, "Concentração nos boxes antes da largada"),
+  gpMedia("gp-3", "image", gp3, 3, null, "O grupo Ademicon reunido na pista, com as bandeiras das marcas parceiras"),
+  gpMedia("gp-4", "image", gp4, 4, null, "Entrevista à beira da pista durante o fim de semana de corrida"),
+  gpMedia("gp-5", "image", gp5, 5, null, "Preparação final do carro #21 no grid de largada"),
+  gpMedia("gp-6", "image", gp6, 6, null, "Disputa acirrada entre os carros do TCR South America"),
+  gpMedia("gp-7", "image", gp7, 7, null, "A bandeira do Brasil no retrovisor, orgulho da equipe em solo uruguaio"),
+  gpMedia("gp-8", "image", gp8, 8, null, "A celebração do pódio com a bandeira brasileira erguida"),
+  gpMedia("gp-9", "image", gp9, 9, null, "As ruas históricas de Montevidéu em preto e branco"),
+  gpMedia("gp-10", "image", gp10, 10, null, "O sol nascendo sobre a cidade coberta pela neblina"),
+  gpMedia(
+    "gp-video-1",
+    "youtube",
+    "https://www.youtube.com/watch?v=ee6tLrVsUC0",
+    11,
+    "Gran Prix Ademicon - Travel Video",
+    "Registro completo da campanha Gran Prix Ademicon em Montevidéu, da pista aos bastidores da viagem.",
+  ),
+  gpMedia(
+    "gp-video-2",
+    "youtube",
+    "https://www.youtube.com/shorts/xe-5BJlNVnI",
+    12,
+    "Gran Prix highlight video",
+    "Os melhores momentos da experiência em um vídeo curto e dinâmico.",
+  ),
 ];
+
