@@ -169,7 +169,7 @@ const PortfolioDetail = () => {
                   <div className="flex items-center gap-2 mb-8 border-b border-foreground/10">
                     {([
                       ["video", "Vídeos"],
-                      ["photo", "Fotografia"],
+                      ["photo", "Photography"],
                     ] as const).map(([key, label]) => (
                       <button
                         key={key}
