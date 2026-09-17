@@ -115,7 +115,7 @@ export const portfolioMedia: PortfolioMedia[] = [
   gpMedia("gp-2", "image", gp2, 2, null, "Concentração nos boxes antes da largada"),
   gpMedia("gp-3", "image", gp3, 3, null, "O grupo Ademicon reunido na pista, com as bandeiras das marcas parceiras"),
   gpMedia("gp-4", "image", gp4, 4, null, "Entrevista à beira da pista durante o fim de semana de corrida"),
-  gpMedia("gp-5", "image", gp5, 5, null, "Preparação final do carro #21 no grid de largada"),
+  gpMedia("gp-5", "image", gp5, 5, null, "Preparação para a largada"),
   gpMedia("gp-6", "image", gp6, 6, null, "Disputa acirrada entre os carros do TCR South America"),
   gpMedia("gp-7", "image", gp7, 7, null, "A bandeira do Brasil no retrovisor, orgulho da equipe em solo uruguaio"),
   gpMedia("gp-8", "image", gp8, 8, null, "A celebração do pódio com a bandeira brasileira erguida"),
