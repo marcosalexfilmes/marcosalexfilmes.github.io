@@ -110,4 +110,32 @@ export const portfolioMedia: PortfolioMedia[] = [
     "Travel highlight video",
     "Os melhores momentos da viagem em um vídeo dinâmico com os destaques da experiência.",
   ),
+
+  gpMedia("gp-1", "image", gp1, 1, null, "Montevidéu ao amanhecer: a rambla emergindo da névoa sobre o Rio da Prata"),
+  gpMedia("gp-2", "image", gp2, 2, null, "Concentração nos boxes antes da largada"),
+  gpMedia("gp-3", "image", gp3, 3, null, "O grupo Ademicon reunido na pista, com as bandeiras das marcas parceiras"),
+  gpMedia("gp-4", "image", gp4, 4, null, "Entrevista à beira da pista durante o fim de semana de corrida"),
+  gpMedia("gp-5", "image", gp5, 5, null, "Preparação final do carro #21 no grid de largada"),
+  gpMedia("gp-6", "image", gp6, 6, null, "Disputa acirrada entre os carros do TCR South America"),
+  gpMedia("gp-7", "image", gp7, 7, null, "A bandeira do Brasil no retrovisor, orgulho da equipe em solo uruguaio"),
+  gpMedia("gp-8", "image", gp8, 8, null, "A celebração do pódio com a bandeira brasileira erguida"),
+  gpMedia("gp-9", "image", gp9, 9, null, "As ruas históricas de Montevidéu em preto e branco"),
+  gpMedia("gp-10", "image", gp10, 10, null, "O sol nascendo sobre a cidade coberta pela neblina"),
+  gpMedia(
+    "gp-video-1",
+    "youtube",
+    "https://www.youtube.com/watch?v=ee6tLrVsUC0",
+    11,
+    "Gran Prix Ademicon - Travel Video",
+    "Registro completo da campanha Gran Prix Ademicon em Montevidéu, da pista aos bastidores da viagem.",
+  ),
+  gpMedia(
+    "gp-video-2",
+    "youtube",
+    "https://www.youtube.com/shorts/xe-5BJlNVnI",
+    12,
+    "Gran Prix highlight video",
+    "Os melhores momentos da experiência em um vídeo curto e dinâmico.",
+  ),
 ];
+
