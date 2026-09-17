@@ -11,7 +11,20 @@ import roma195 from "@/assets/roma/Roma-195.jpg";
 import roma153 from "@/assets/roma/Roma-153.jpg";
 import roma53 from "@/assets/roma/Roma-53.jpg";
 
+// Imagens locais (src/assets/granprix).
+import gp1 from "@/assets/granprix/gp-1.jpg";
+import gp2 from "@/assets/granprix/gp-2.jpg";
+import gp3 from "@/assets/granprix/gp-3.jpg";
+import gp4 from "@/assets/granprix/gp-4.jpg";
+import gp5 from "@/assets/granprix/gp-5.jpg";
+import gp6 from "@/assets/granprix/gp-6.jpg";
+import gp7 from "@/assets/granprix/gp-7.jpg";
+import gp8 from "@/assets/granprix/gp-8.jpg";
+import gp9 from "@/assets/granprix/gp-9.jpg";
+import gp10 from "@/assets/granprix/gp-10.jpg";
+
 const ROMA_ID = "roma-la-conquista";
+const GP_ID = "gran-prix-ademicon";
 const NOW = "2026-08-22T23:56:48.756Z";
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -30,9 +43,24 @@ export const portfolioProjects: PortfolioProject[] = [
     created_at: NOW,
     updated_at: NOW,
   },
+  {
+    id: GP_ID,
+    title: "Gran Prix Ademicon",
+    slug: "gran-prix-ademicon",
+    category: "VIDEO & PHOTOGRAPHY",
+    description:
+      'A campanha de incentivo "Gran Prix Ademicon", levou os melhores vendedores para Montevidéu, Uruguai. Desde cenários urbanos impressionantes até momentos de grande emoção e velocidade, a essência da corrida juntamente aos representantes da marca é relembrada nas fotos e no registro em vídeo da viagem.',
+    year: 2025,
+    preview_image_1: gp1,
+    preview_image_2: gp3,
+    preview_image_3: gp8,
+    preview_image_4: gp10,
+    created_at: NOW,
+    updated_at: NOW,
+  },
 ];
 
-const media = (
+const makeMedia = (project_id: string) => (
   id: string,
   media_type: PortfolioMedia["media_type"],
   url: string,
@@ -41,7 +69,7 @@ const media = (
   caption: string | null,
 ): PortfolioMedia => ({
   id,
-  project_id: ROMA_ID,
+  project_id,
   media_type,
   url,
   poster_url: null,
@@ -51,6 +79,10 @@ const media = (
   created_at: NOW,
   updated_at: NOW,
 });
+
+const media = makeMedia(ROMA_ID);
+const gpMedia = makeMedia(GP_ID);
+
 
 export const portfolioMedia: PortfolioMedia[] = [
   media("roma-1", "image", roma199, 1, null, "A cúpula da Basílica de São Pedro iluminada pelo pôr do sol"),
