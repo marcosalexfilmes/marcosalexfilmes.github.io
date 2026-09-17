@@ -119,7 +119,7 @@ export const portfolioMedia: PortfolioMedia[] = [
   gpMedia("gp-6", "image", gp6, 6, null, "Disputa acirrada entre os carros do TCR South America"),
   gpMedia("gp-7", "image", gp7, 7, null, "A bandeira do Brasil no retrovisor, orgulho da equipe em solo uruguaio"),
   gpMedia("gp-8", "image", gp8, 8, null, "A celebração do pódio com a bandeira brasileira erguida"),
-  gpMedia("gp-9", "image", gp9, 9, null, "As ruas históricas de Montevidéu em preto e branco"),
+  gpMedia("gp-9", "image", gp9, 9, null, "As ruas históricas de Montevidéu"),
   gpMedia("gp-10", "image", gp10, 10, null, "O sol nascendo sobre a cidade coberta pela neblina"),
   gpMedia(
     "gp-video-1",
