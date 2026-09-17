@@ -66,7 +66,9 @@ const Portfolio = () => {
       </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <div className="bg-black text-white">
+        <TestimonialsSection />
+      </div>
     </Layout>
   );
 };
