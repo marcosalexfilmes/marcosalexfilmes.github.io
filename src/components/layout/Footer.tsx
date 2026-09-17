@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="border-t border-border bg-secondary/30">
+  return <footer className="border-t border-white/10 bg-black text-white">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>

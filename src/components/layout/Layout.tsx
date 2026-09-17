@@ -28,7 +28,7 @@ const Layout = ({ children, hasHero = false }: LayoutProps) => {
       {/* Content layer */}
       <div className="relative min-h-screen flex flex-col">
         <Header />
-        <main className={`flex-1 ${hasHero ? "" : "pt-20"}`}>{children}</main>
+        <main className={`flex-1 ${hasHero ? "" : "pt-16"}`}>{children}</main>
         <Footer />
       </div>
     </>
