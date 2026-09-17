@@ -127,15 +127,15 @@ export const portfolioMedia: PortfolioMedia[] = [
     "https://www.youtube.com/watch?v=ee6tLrVsUC0",
     11,
     "Gran Prix Ademicon - Travel Video",
-    "Registro completo da campanha Gran Prix Ademicon em Montevidéu, da pista aos bastidores da viagem.",
+    "The complete experience of the Gran Prix Ademicon (Short Video).",
   ),
   gpMedia(
     "gp-video-2",
     "youtube",
     "https://www.youtube.com/shorts/xe-5BJlNVnI",
     12,
-    "Gran Prix highlight video",
-    "Os melhores momentos da experiência em um vídeo curto e dinâmico.",
+    "Gran Prix (Social Media Version)",
+    "Vertical video for social media.",
   ),
 ];
 
