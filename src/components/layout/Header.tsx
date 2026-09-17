@@ -7,7 +7,6 @@ const Header = () => {
 
   // Detect if on homepage or project detail page
   const isHomepage = location.pathname === "/";
-  const isProjectPage = location.pathname.startsWith("/portfolio/");
   const navLinks = [{
     href: "/",
     label: "Home"
