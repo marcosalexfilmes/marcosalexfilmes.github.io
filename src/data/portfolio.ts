@@ -49,7 +49,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "gran-prix-ademicon",
     category: "VIDEO & PHOTOGRAPHY",
     description:
-      'A campanha de incentivo "Gran Prix Ademicon", levou os melhores vendedores para Montevidéu, Uruguai. Desde cenários urbanos impressionantes até momentos de grande emoção e velocidade, a essência da corrida juntamente aos representantes da marca é relembrada nas fotos e no registro em vídeo da viagem.',
+      'A campanha de incentivo "Gran Prix Ademicon", levou os melhores vendedores para Montevidéu, Uruguai. Desde cenários urbanos impressionantes até momentos de grande emoção e velocidade com participação no evento de corrida da TCR South America. A essência da corrida juntamente aos representantes da marca é relembrada nas fotos e no registro em vídeo da viagem.',
     year: 2025,
     preview_image_1: gp1,
     preview_image_2: gp3,
