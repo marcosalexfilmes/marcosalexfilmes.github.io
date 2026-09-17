@@ -26,7 +26,7 @@ const Portfolio = () => {
             </HeroItem>
             <HeroItem>
               <p className="mt-6 text-lg text-white/70">
-                Crafting brand experiences that captivate and connect with audiences.
+                Capturing moments that captivate and connect with audiences.
               </p>
             </HeroItem>
           </HeroContent>
