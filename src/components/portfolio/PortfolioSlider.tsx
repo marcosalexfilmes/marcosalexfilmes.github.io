@@ -78,7 +78,7 @@ const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
               Coming Soon
             </span>
             <h3 className="text-lg md:text-xl tracking-tight font-normal text-muted-foreground">
-              Próximo projeto
+              Your Project
             </h3>
           </div>
         </div>
