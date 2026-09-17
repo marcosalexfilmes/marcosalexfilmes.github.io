@@ -11,11 +11,11 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Page Header */}
-      <section className="py-20 md:py-28">
+      <section className="bg-black text-white py-20 md:py-28">
         <div className="container">
           <HeroContent className="max-w-2xl">
             <HeroItem>
-              <p className="text-sm font-medium tracking-[0.2em] uppercase text-muted-foreground mb-4">
+              <p className="text-sm font-medium tracking-[0.2em] uppercase text-white/60 mb-4">
                 Our Work
               </p>
             </HeroItem>
@@ -25,7 +25,7 @@ const Portfolio = () => {
               </h1>
             </HeroItem>
             <HeroItem>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-lg text-white/70">
                 Crafting brand experiences that captivate and connect with audiences.
               </p>
             </HeroItem>
@@ -34,7 +34,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="pb-24 md:pb-32">
+      <section className="bg-black text-white pb-24 md:pb-32">
         <div className="container">
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -56,7 +56,7 @@ const Portfolio = () => {
             <div className="text-center py-20">
               <div className="max-w-md mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">No Projects Yet</h2>
-                <p className="text-muted-foreground">
+                <p className="text-white/60">
                   Portfolio items will appear here once added through Lovable Cloud.
                 </p>
               </div>
@@ -66,7 +66,9 @@ const Portfolio = () => {
       </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <div className="bg-black text-white">
+        <TestimonialsSection />
+      </div>
     </Layout>
   );
 };

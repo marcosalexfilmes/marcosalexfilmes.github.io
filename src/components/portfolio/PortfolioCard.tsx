@@ -20,45 +20,30 @@ const PortfolioCard = ({ project }: PortfolioCardProps) => {
   const displayYear = project.year || new Date(project.created_at).getFullYear();
 
   return (
-    <Link 
-      to={`/portfolio/${project.slug}`} 
-      className="group block bg-card rounded-4xl shadow-sm transition-all duration-500 hover:-translate-y-1 overflow-hidden relative"
+    <Link
+      to={`/portfolio/${project.slug}`}
+      className="group block relative overflow-hidden rounded-3xl aspect-[4/5]"
     >
-      {/* Image Section */}
-      <div className="relative h-[420px] w-full overflow-hidden rounded-t-4xl">
-        <img
-          src={project.preview_image_1}
-          alt={project.title}
-          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-        />
-        
-        {/* Hover Arrow Icon - Top Right Corner */}
-        <div className="absolute top-[15px] right-[15px] opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-300">
-            <ArrowUpRight className="w-5 h-5 text-foreground" />
-          </div>
-        </div>
-      </div>
-      
-      {/* Content Section */}
-      <div className="p-5 relative">
-        {/* Title */}
-        <h3 className="text-lg font-semibold tracking-tight text-foreground mb-3">
-          {project.title}
-        </h3>
-        
-        {/* Year + Category Row */}
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground font-medium">
-            {displayYear}
-          </span>
-          <span className="text-xs font-medium tracking-wider uppercase text-muted-foreground px-3 py-1 bg-secondary rounded-full">
-            {categoryLabels[project.category] || project.category}
-          </span>
-        </div>
+      <img
+        src={project.preview_image_1}
+        alt={project.title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+
+      <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <ArrowUpRight className="w-4 h-4 text-white" />
       </div>
 
+      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+        <span className="block text-[11px] font-medium tracking-[0.2em] uppercase text-white/70 mb-1.5">
+          {categoryLabels[project.category] || project.category} · {displayYear}
+        </span>
+        <h3 className="text-lg md:text-xl text-white tracking-tight font-normal">
+          {project.title}
+        </h3>
+      </div>
     </Link>
   );
 };
