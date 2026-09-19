@@ -13,8 +13,10 @@ Reorganizar a seção **About** para destacar as quatro fotos enviadas sem compr
 ## Carrossel
 - Usar as imagens na ordem em que foram enviadas: `DSC00758`, `IMG_0950`, `20250220_Acelerador...` e `marcoz`.
 - Manter uma área de imagem estável, com enquadramento vertical e corte consistente para evitar mudanças de layout.
-- Adicionar transição suave, navegação anterior/próxima e indicadores acessíveis.
-- Avançar automaticamente, pausar durante interação e respeitar a preferência de movimento reduzido.
+- Alternar automaticamente entre as fotos a cada 4 segundos, com transição suave.
+- Não exibir setas, indicadores ou qualquer outro controle de navegação.
+- Manter as fotos apenas como apresentação visual, sem opção de clique ou abertura ampliada.
+- Respeitar a preferência de movimento reduzido, mantendo uma única imagem estática nesse caso.
 
 ## Otimização
 - Gerar versões WebP redimensionadas para o tamanho efetivamente exibido, preservando proporção e qualidade visual.
