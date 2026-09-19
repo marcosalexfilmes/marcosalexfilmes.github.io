@@ -20,7 +20,7 @@ const Portfolio = () => {
             </HeroItem>
             <HeroItem>
               <h1 className="text-4xl md:text-6xl tracking-tight font-normal">
-                Explore Our Success Stories
+                Successful Projects
               </h1>
             </HeroItem>
             <HeroItem>
