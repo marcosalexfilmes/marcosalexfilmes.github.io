@@ -3,7 +3,6 @@ import { usePortfolioList } from "@/hooks/usePortfolio";
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import LoadingSkeleton from "@/components/ui/loading-skeleton";
 import { HeroContent, HeroItem, StaggerContainer, StaggerItem } from "@/components/ui/scroll-animation";
-import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
 
 const Portfolio = () => {
   const { data: portfolio, isLoading, error } = usePortfolioList();
@@ -65,10 +64,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <div className="bg-black text-white">
-        <TestimonialsSection />
-      </div>
     </Layout>
   );
 };
