@@ -7,6 +7,7 @@ import PortfolioSlider from "@/components/portfolio/PortfolioSlider";
 import { HeroContent, HeroItem, FadeUp, SectionHeader, StaggerContainer, StaggerItem } from "@/components/ui/scroll-animation";
 import { TypingHeading } from "@/components/ui/typing-heading";
 import HeroSlider from "@/components/HeroSlider";
+import AboutCarousel from "@/components/AboutCarousel";
 
 const Index = () => {
   const {
@@ -93,8 +94,13 @@ const Index = () => {
             </h2>
           </SectionHeader>
 
-          {/* Features Grid */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+            <FadeUp>
+              <AboutCarousel />
+            </FadeUp>
+
+            {/* Features List */}
+            <StaggerContainer className="grid grid-cols-1 gap-5">
             {/* Visual Storytelling */}
             <StaggerItem>
               <div className="group p-6 rounded-4xl bg-white/5 hover:bg-white/10 transition-all duration-500">
@@ -158,7 +164,8 @@ const Index = () => {
                 </p>
               </div>
             </StaggerItem>
-          </StaggerContainer>
+            </StaggerContainer>
+          </div>
         </div>
       </section>
     </Layout>;
