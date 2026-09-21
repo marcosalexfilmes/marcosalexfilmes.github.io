@@ -1,10 +1,10 @@
 import { useTypingAnimation } from '@/hooks/useTypingAnimation';
 import { cn } from '@/lib/utils';
+import siteContent from '@/content/siteContent';
 
-// ✏️ HERO HEADING TEXT - EASY TO EDIT
-// Just change this text to update the heading
-const HERO_HEADING_LINE_1 = "Stories through the lens";
-const HERO_HEADING_LINE_2 = "";
+const HERO_HEADING_LINE_1 = siteContent.home.hero.headingLine1;
+const HERO_HEADING_LINE_2 = siteContent.home.hero.headingLine2;
+
 interface TypingHeadingProps {
   className?: string;
 }
@@ -32,7 +32,7 @@ export function TypingHeading({
   const displayedLine1 = displayedText.slice(0, line1Length);
   const displayedLine2 = displayedText.slice(line1Length + 1); // +1 for the space
 
-  return <h1 className={cn("text-5xl md:text-7xl tracking-tight text-white leading-[0.95] lg:text-6xl font-light", className)} aria-label={fullText}>
+  return <h1 className={cn("text-5xl md:text-7xl tracking-tight text-white leading-[0.85] lg:text-6xl font-bold -mt-[5px]", className)} aria-label={fullText}>
       <span className="inline text-4xl">
         {displayedLine1}
         {/* Show cursor on line 1 while typing (always, when there is no line 2) */}

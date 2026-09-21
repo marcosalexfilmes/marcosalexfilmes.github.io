@@ -1,8 +1,6 @@
-import type { BlogPost, Testimonial } from "./types";
+import type { Testimonial } from "./types";
 
 // Conteúdo local. Adicione itens aqui para que apareçam no site.
-export const blogPosts: BlogPost[] = [];
-
 export const testimonials: Testimonial[] = [];
 
 export const siteSettings: Record<string, string> = {

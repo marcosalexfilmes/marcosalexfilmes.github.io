@@ -23,6 +23,10 @@ import gp8 from "@/assets/granprix/gp-8.jpg";
 import gp9 from "@/assets/granprix/gp-9.jpg";
 import gp10 from "@/assets/granprix/gp-10.jpg";
 
+// Capas otimizadas para carregamento rápido dos cards (Home e Portfólio)
+import roma199Cover from "@/assets/covers/roma-199-cover.jpg";
+import gp1Cover from "@/assets/covers/gp-1-cover.jpg";
+
 const ROMA_ID = "roma-la-conquista";
 const GP_ID = "gran-prix-ademicon";
 const NOW = "2026-08-22T23:56:48.756Z";
@@ -36,7 +40,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       'Registro fotográfico e em vídeo da campanha de incentivo "La Conquista", uma viagem realizada pela maior administradora de consórcios do Brasil, "Ademicon Consórcio e Investimento". A viagem, que teve como destino principal a capital da Itália, também passou por Firenze e pelo Vaticano.',
     year: 2026,
-    preview_image_1: roma199,
+    preview_image_1: roma199Cover,
     preview_image_2: roma836,
     preview_image_3: roma438,
     preview_image_4: roma224,
@@ -51,7 +55,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       'A campanha de incentivo "Gran Prix Ademicon", levou os melhores vendedores para Montevidéu, Uruguai. Desde cenários urbanos impressionantes até momentos de grande emoção e velocidade com participação no evento de corrida da TCR South America. A essência da corrida juntamente aos representantes da marca é relembrada nas fotos e no registro em vídeo da viagem.',
     year: 2025,
-    preview_image_1: gp1,
+    preview_image_1: gp1Cover,
     preview_image_2: gp3,
     preview_image_3: gp8,
     preview_image_4: gp10,
@@ -99,7 +103,7 @@ export const portfolioMedia: PortfolioMedia[] = [
     "youtube",
     "https://www.youtube.com/watch?v=9iGeZ5ksCIk",
     10,
-    "Roma - La Conquista - Travel Video",
+    "Roma - La Conquista (Filme Oficial)",
     "Documentário completo da campanha La Conquista, registrando os momentos mais marcantes da viagem pela Itália.",
   ),
   media(
@@ -107,7 +111,7 @@ export const portfolioMedia: PortfolioMedia[] = [
     "youtube",
     "https://www.youtube.com/watch?v=4z_ke3tCy20",
     11,
-    "Travel highlight video",
+    "Highlights da Viagem (Teaser)",
     "Os melhores momentos da viagem em um vídeo dinâmico com os destaques da experiência.",
   ),
 
@@ -126,16 +130,16 @@ export const portfolioMedia: PortfolioMedia[] = [
     "youtube",
     "https://www.youtube.com/watch?v=ee6tLrVsUC0",
     11,
-    "Gran Prix Ademicon - Travel Video",
-    "The complete experience of the Gran Prix Ademicon (Short Video).",
+    "Gran Prix Ademicon (Filme Oficial)",
+    "Experiência completa da campanha Gran Prix Ademicon com a TCR South America.",
   ),
   gpMedia(
     "gp-video-2",
     "youtube",
     "https://www.youtube.com/shorts/xe-5BJlNVnI",
     12,
-    "Gran Prix (Social Media Version)",
-    "Vertical video for social media.",
+    "Gran Prix (Cortes Verticais / Social Media)",
+    "Registro dinâmico em formato vertical planejado para reels e engajamento em redes sociais.",
   ),
 ];
 

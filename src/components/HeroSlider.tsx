@@ -35,9 +35,48 @@ const MOTION_VARIANTS = [
   { from: { scale: 1.0, x: "-1.5%" }, to: { scale: 1.07, x: "0.5%" } },
 ];
 
+interface VideoSlideProps {
+  src: string;
+  poster?: string;
+  onEnded?: () => void;
+  loop?: boolean;
+}
+
+const VideoSlide = ({ src, poster, onEnded, loop }: VideoSlideProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.currentTime = 0;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      className="w-full h-full object-cover"
+      muted
+      playsInline
+      autoPlay
+      loop={loop}
+      preload="auto"
+      onCanPlay={(e) => {
+        e.currentTarget.play().catch(() => {});
+      }}
+      onEnded={onEnded}
+    />
+  );
+};
+
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
-  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
   const prefersReducedMotion =
     typeof window !== "undefined" &&
     window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -46,7 +85,7 @@ const HeroSlider = () => {
     setCurrent((prev) => (prev + 1) % SLIDES.length);
   }, []);
 
-  // Autoplay / advance
+  // Autoplay / advance timer
   useEffect(() => {
     if (SLIDES.length <= 1 || prefersReducedMotion) return;
     const slide = SLIDES[current];
@@ -54,19 +93,6 @@ const HeroSlider = () => {
     const timer = setTimeout(next, duration);
     return () => clearTimeout(timer);
   }, [current, next, prefersReducedMotion]);
-
-  // Play active video, pause the others
-  useEffect(() => {
-    Object.entries(videoRefs.current).forEach(([key, el]) => {
-      if (!el) return;
-      if (Number(key) === current && !prefersReducedMotion) {
-        el.currentTime = 0;
-        el.play().catch(() => {});
-      } else {
-        el.pause();
-      }
-    });
-  }, [current, prefersReducedMotion]);
 
   const slide = SLIDES[current];
   const move = MOTION_VARIANTS[current % MOTION_VARIANTS.length];
@@ -93,18 +119,11 @@ const HeroSlider = () => {
           exit={{ opacity: 0, transition: { duration: 1.1, ease: "easeInOut" } }}
         >
           {slide.type === "video" ? (
-            <video
-              ref={(el) => {
-                videoRefs.current[current] = el;
-              }}
+            <VideoSlide
+              key={`video-${current}`}
               src={slide.src}
               poster={slide.poster}
-              className="w-full h-full object-cover"
-              muted
-              playsInline
-              autoPlay
               loop={SLIDES.length === 1}
-              preload="auto"
               onEnded={SLIDES.length > 1 ? next : undefined}
             />
           ) : (
