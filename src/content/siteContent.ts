@@ -48,9 +48,9 @@ export const siteContent = {
     closeAriaLabel: "Fechar menu e voltar para a home page",
     homeAriaLabel: "Voltar para a página inicial",
     links: [
-      { label: "Portfolio", href: "/portfolio" },
-      { label: "About", href: "/#about" },
-      { label: "Contact", href: "/#contact" },
+      { label: "Portfólio", href: "/portfolio" },
+      { label: "Sobre", href: "/#about" },
+      { label: "Contato", href: "/#contact" },
     ],
   },
 
@@ -63,17 +63,17 @@ export const siteContent = {
       badge: "FILMMAKER & FOTÓGRAFO",
       headingLine1: "Marcos Alex",
       headingLine2: "", // Optional 2nd animated line
-      ctaButton: "Portfolio",
+      ctaButton: "Portfólio",
       ctaHref: "/portfolio",
     },
 
     // Selected Work / Portfolio Slider section
     portfolioSection: {
       badge: "Produções Selecionadas",
-      title: "Portfolio",
+      title: "Portfólio",
       viewAllButton: "Ver todos",
       viewAllHref: "/portfolio",
-      emptyState: "No portfolio items yet. Add some in Lovable Cloud.",
+      emptyState: "Nenhum projeto no portfólio no momento.",
     },
 
     // About Marcos Alex & Storytelling features
@@ -126,22 +126,22 @@ export const siteContent = {
       form: {
         nameLabel: "Nome",
         namePlaceholder: "Seu melhor nome",
-        nameError: "Name is required",
+        nameError: "O nome é obrigatório",
 
         emailLabel: "Email",
         emailPlaceholder: "Seu melhor email",
-        emailErrorEmpty: "Email is required",
-        emailErrorInvalid: "Please enter a valid email",
+        emailErrorEmpty: "O email é obrigatório",
+        emailErrorInvalid: "Por favor, insira um email válido",
 
         projectTypeLabel: "Tipo de projeto",
         projectTypePlaceholder: "Eventos, vídeos, fotografia, criação de conteúdo ou outros.",
 
         messageLabel: "Mensagem",
         messagePlaceholder: "Conte mais sobre seu projeto",
-        messageError: "Message is required",
+        messageError: "A mensagem é obrigatória",
 
         submitButton: "Enviar",
-        submittingButton: "Sending...",
+        submittingButton: "Enviando...",
         successTitle: "Mensagem enviada!",
         successDescription:
           "Obrigado pela sua mensagem, logo mais irei lhe retornar!",
@@ -156,20 +156,20 @@ export const siteContent = {
   portfolioPage: {
     badge: "Projetos",
     title: "Projetos de sucesso",
-    description: "Capturing moments that captivate and connect with audiences.",
-    emptyTitle: "No Projects Yet",
-    emptyDescription: "Portfolio items will appear here once added through Lovable Cloud.",
-    errorMessage: "Error loading portfolio. Please try again later.",
+    description: "Capturando momentos que conectam e encantam o público.",
+    emptyTitle: "Nenhum projeto ainda",
+    emptyDescription: "Os projetos aparecerão aqui quando forem adicionados.",
+    errorMessage: "Erro ao carregar o portfólio. Por favor, tente novamente mais tarde.",
     detail: {
-      backButton: "Voltar",
-      clientLabel: "Client",
-      roleLabel: "Role",
-      yearLabel: "Year",
-      servicesLabel: "Services",
-      aboutHeading: "About the Project",
-      videosTab: "Watch Videos",
-      photosTab: "Photo Gallery",
-      emptyMedia: "No media uploaded for this project yet.",
+      backButton: "Voltar ao Portfólio",
+      clientLabel: "Cliente",
+      roleLabel: "Função",
+      yearLabel: "Ano",
+      servicesLabel: "Serviços",
+      aboutHeading: "Sobre o Projeto",
+      videosTab: "Vídeos",
+      photosTab: "Fotografia",
+      emptyMedia: "Nenhuma mídia adicionada a este projeto ainda.",
     },
   },
 
@@ -179,13 +179,13 @@ export const siteContent = {
   footer: {
     brandName: "Marcos Alex",
     tagline: "Storytelling com propósito e resultado.",
-    exploreHeading: "Explore",
+    exploreHeading: "Explorar",
     connectHeading: "Contato",
-    portfolioLinkLabel: "Portfolio",
+    portfolioLinkLabel: "Portfólio",
     email: "marcosalexov@gmail.com",
     location: "CwB/PR - Brasil",
-    copyrightSuffix: "All rights reserved.",
-    signature: "Crafted with intention",
+    copyrightSuffix: "Todos os direitos reservados.",
+    signature: "Produzido com intenção e propósito",
   },
 
   // ==========================================
@@ -193,8 +193,8 @@ export const siteContent = {
   // ==========================================
   notFound: {
     title: "404",
-    subtitle: "Oops! Page not found",
-    returnHomeButton: "Return to Home",
+    subtitle: "Ops! Página não encontrada",
+    returnHomeButton: "Voltar para o início",
   },
 } as const;
 

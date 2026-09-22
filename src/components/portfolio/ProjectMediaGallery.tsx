@@ -52,13 +52,17 @@ const VideoEmbed = ({ item, projectTitle }: { item: PortfolioMedia; projectTitle
 const ProjectMediaGallery = ({ media, projectTitle }: ProjectMediaGalleryProps) => {
   const [lightbox, setLightbox] = useState<PortfolioMedia | null>(null);
 
-  const allVideos = useMemo(() => media.length > 0 && media.every(isVideoItem), [media]);
+  const videoItems = useMemo(() => media.filter(isVideoItem), [media]);
+  const photoItems = useMemo(() => media.filter((item) => !isVideoItem(item)), [media]);
+
+  const hasOnlyVideos = photoItems.length === 0 && videoItems.length > 0;
+  const hasOnlyPhotos = videoItems.length === 0 && photoItems.length > 0;
 
   return (
     <>
-      {allVideos ? (
+      {hasOnlyVideos ? (
         <StaggerContainer className="flex flex-col gap-16 md:gap-24">
-          {media.map((item, index) => (
+          {videoItems.map((item) => (
             <StaggerItem key={item.id}>
               <FadeScale>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
@@ -83,75 +87,138 @@ const ProjectMediaGallery = ({ media, projectTitle }: ProjectMediaGalleryProps) 
             </StaggerItem>
           ))}
         </StaggerContainer>
-      ) : (
+      ) : hasOnlyPhotos ? (
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {media.map((item, index) => (
+          {photoItems.map((item, index) => (
             <StaggerItem key={item.id}>
               <FadeScale>
                 <figure className="space-y-3">
-                  {isVideoItem(item) ? (
-                    <VideoEmbed item={item} projectTitle={projectTitle} />
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setLightbox(item)}
-                      className="relative block w-full overflow-hidden rounded-xl aspect-video group"
-                      aria-label={`Open ${item.title || projectTitle} full screen`}
-                    >
-                      <img
-                        src={item.url}
-                        alt={item.caption || item.title || `${projectTitle} - ${index + 1}`}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                      {(item.title || item.caption) && (
-                        <div className="absolute inset-0 flex flex-col justify-end p-6 text-left bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-500">
-                          {item.title && (
-                            <p className="text-base font-medium tracking-tight text-white">{item.title}</p>
-                          )}
-                          {item.caption && (
-                            <p className="text-sm leading-relaxed text-white/80 mt-1">{item.caption}</p>
-                          )}
-                        </div>
-                      )}
-                    </button>
-                  )}
-
-                  {isVideoItem(item) && (item.title || item.caption) && (
-                    <figcaption className="space-y-1">
-                      {item.title && (
-                        <p className="text-base font-medium tracking-tight flex items-center gap-2">
-                          {item.media_type === "video" && <Play className="w-4 h-4 text-muted-foreground" />}
-                          {item.title}
-                        </p>
-                      )}
-                      {item.caption && <p className="text-sm text-muted-foreground leading-relaxed">{item.caption}</p>}
-                    </figcaption>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => setLightbox(item)}
+                    className="relative block w-full overflow-hidden rounded-xl aspect-video group"
+                    aria-label={`Open ${item.title || projectTitle} full screen`}
+                  >
+                    <img
+                      src={item.url}
+                      alt={item.caption || item.title || `${projectTitle} - ${index + 1}`}
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                    {(item.title || item.caption) && (
+                      <div className="absolute inset-0 flex flex-col justify-end p-6 text-left bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-500">
+                        {item.title && (
+                          <p className="text-base font-medium tracking-tight text-white">{item.title}</p>
+                        )}
+                        {item.caption && (
+                          <p className="text-sm leading-relaxed text-white/80 mt-1">{item.caption}</p>
+                        )}
+                      </div>
+                    )}
+                  </button>
                 </figure>
               </FadeScale>
             </StaggerItem>
           ))}
         </StaggerContainer>
+      ) : (
+        <div className="space-y-14 md:space-y-20">
+          {videoItems.length > 0 && (
+            <StaggerContainer className="flex flex-col gap-16 md:gap-24">
+              {videoItems.map((item) => (
+                <StaggerItem key={item.id}>
+                  <FadeScale>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+                      <div className="lg:col-span-3">
+                        <VideoEmbed item={item} projectTitle={projectTitle} />
+                      </div>
+                      <div className="lg:col-span-2 flex flex-col justify-center">
+                        {item.title && (
+                          <h3 className="text-xl md:text-2xl tracking-tight font-normal text-white mb-3 flex items-center gap-3">
+                            <Play className="w-5 h-5 text-white/70" />
+                            {item.title}
+                          </h3>
+                        )}
+                        {item.caption && (
+                          <p className="text-sm md:text-base leading-relaxed text-white/80">
+                            {item.caption}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </FadeScale>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          )}
+
+          {photoItems.length > 0 && (
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {photoItems.map((item, index) => (
+                <StaggerItem key={item.id}>
+                  <FadeScale>
+                    <figure className="space-y-3">
+                      <button
+                        type="button"
+                        onClick={() => setLightbox(item)}
+                        className="relative block w-full overflow-hidden rounded-xl aspect-video group"
+                        aria-label={`Open ${item.title || projectTitle} full screen`}
+                      >
+                        <img
+                          src={item.url}
+                          alt={item.caption || item.title || `${projectTitle} - ${index + 1}`}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                        {(item.title || item.caption) && (
+                          <div className="absolute inset-0 flex flex-col justify-end p-6 text-left bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-500">
+                            {item.title && (
+                              <p className="text-base font-medium tracking-tight text-white">{item.title}</p>
+                            )}
+                            {item.caption && (
+                              <p className="text-sm leading-relaxed text-white/80 mt-1">{item.caption}</p>
+                            )}
+                          </div>
+                        )}
+                      </button>
+                    </figure>
+                  </FadeScale>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          )}
+        </div>
       )}
 
       <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
         <DialogContent className="max-w-6xl border-none bg-transparent p-0 shadow-none">
           {lightbox && (
-            <div className="relative">
-              <img
-                src={lightbox.url}
-                alt={lightbox.title || projectTitle}
-                className="w-full max-h-[85vh] object-contain rounded-xl"
-              />
-              <button
-                type="button"
-                onClick={() => setLightbox(null)}
-                className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
+            <div className="relative flex flex-col items-center">
+              <div className="relative max-w-full">
+                <img
+                  src={lightbox.url}
+                  alt={lightbox.title || projectTitle}
+                  className="w-full max-h-[82vh] object-contain rounded-xl"
+                />
+                <button
+                  type="button"
+                  onClick={() => setLightbox(null)}
+                  className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              {(lightbox.title || lightbox.caption) && (
+                <div className="mt-3 text-center px-4 max-w-2xl">
+                  {lightbox.title && (
+                    <p className="text-base font-medium text-white">{lightbox.title}</p>
+                  )}
+                  {lightbox.caption && (
+                    <p className="text-sm text-white/80 mt-1">{lightbox.caption}</p>
+                  )}
+                </div>
+              )}
             </div>
           )}
         </DialogContent>

@@ -115,8 +115,8 @@ const ContactFormCard = () => {
         const body = `Olá, Marcos!\n\nMeu nome é ${formData.name.trim()} e estou entrando em contato pelo seu portfólio.\n\nSobre o projeto:\n${formData.message.trim()}\n\nMeu email para contato: ${formData.email.trim()}\n\nAguardo seu retorno!`;
         window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         toast({
-          title: "Notice",
-          description: "Could not send automatically. Opening your email client instead.",
+          title: "Aviso",
+          description: "Não foi possível enviar automaticamente. Abrindo seu aplicativo de e-mail.",
           variant: "destructive",
         });
       } finally {
@@ -129,8 +129,8 @@ const ContactFormCard = () => {
 
       setIsSubmitted(true);
       toast({
-        title: "Message ready!",
-        description: "Your email client has been opened with your message.",
+        title: "Mensagem pronta!",
+        description: "Seu aplicativo de e-mail foi aberto com a mensagem pronta para envio.",
       });
     }
   };

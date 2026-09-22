@@ -11,6 +11,8 @@ export interface PortfolioProject {
   preview_image_2: string | null;
   preview_image_3: string | null;
   preview_image_4: string | null;
+  cover_image?: string;
+  unified_gallery?: boolean;
   created_at: string;
   updated_at: string;
 }

@@ -24,13 +24,10 @@ const PortfolioDetail = () => {
   const [tab, setTab] = useState<"video" | "photo" | null>(null);
 
   const categoryLabels: Record<string, string> = {
-    fashion: "Fashion",
-    editorial: "Editorial",
-    portrait: "Portrait",
-    commercial: "Commercial",
-    lifestyle: "Lifestyle",
-    fine_art: "Fine Art",
-    "VIDEO & PHOTOGRAPHY": "VIDEO AND PHOTOGRAPHY"
+    "VIDEO & PHOTOGRAPHY": "VÍDEO E FOTOGRAFIA",
+    video_photography: "VÍDEO E FOTOGRAFIA",
+    video: "VÍDEO",
+    photography: "FOTOGRAFIA",
   };
 
   const { videos, photos } = useMemo(() => {
@@ -47,9 +44,10 @@ const PortfolioDetail = () => {
     };
   }, [media]);
 
+  const isUnified = Boolean(project?.unified_gallery);
   const activeTab: "video" | "photo" = tab ?? (videos.length > 0 ? "video" : "photo");
-  const activeMedia = activeTab === "video" ? videos : photos;
-  const showTabs = videos.length > 0 && photos.length > 0;
+  const activeMedia = isUnified ? (media ?? []) : (activeTab === "video" ? videos : photos);
+  const showTabs = !isUnified && videos.length > 0 && photos.length > 0;
 
   if (isLoading) {
     return (
@@ -75,13 +73,13 @@ const PortfolioDetail = () => {
         <div className="dark bg-background text-foreground" style={darkScope}>
           <div className="container py-20">
             <div className="max-w-xl mx-auto text-center">
-              <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
+              <h1 className="text-3xl font-bold mb-4">Projeto não encontrado</h1>
               <p className="text-muted-foreground mb-8">
-                The project you're looking for doesn't exist or has been removed.
+                O projeto que você está procurando não existe ou foi removido.
               </p>
               <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full">
                 <ArrowLeft className="w-4 h-4" />
-                Back to Portfolio
+                Voltar ao Portfólio
               </Link>
             </div>
           </div>
@@ -91,7 +89,7 @@ const PortfolioDetail = () => {
   }
 
   const images = [project.preview_image_1, project.preview_image_2, project.preview_image_3, project.preview_image_4].filter(Boolean) as string[];
-  const cover = project.preview_image_1;
+  const cover = project.cover_image || project.preview_image_1;
 
   return (
     <Layout hasHero={true}>
@@ -112,7 +110,7 @@ const PortfolioDetail = () => {
                 className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors mb-6 w-fit"
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back to Portfolio
+                Voltar ao Portfólio
               </Link>
               <span className="inline-block w-fit px-4 py-1.5 text-xs font-medium tracking-wider uppercase bg-foreground/10 backdrop-blur-sm rounded-full mb-4">
                 {categoryLabels[project.category] || project.category}
@@ -133,7 +131,7 @@ const PortfolioDetail = () => {
                   <HeroItem>
                     <Link to="/portfolio" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
                       <ArrowLeft className="w-4 h-4" />
-                      Back to Portfolio
+                      Voltar ao Portfólio
                     </Link>
                   </HeroItem>
                   <div className="max-w-3xl">
@@ -169,7 +167,7 @@ const PortfolioDetail = () => {
                   <div className="flex items-center gap-2 mb-8 border-b border-foreground/10">
                     {([
                       ["video", "Vídeos"],
-                      ["photo", "Photography"],
+                      ["photo", "Fotografia"],
                     ] as const).map(([key, label]) => (
                       <button
                         key={key}

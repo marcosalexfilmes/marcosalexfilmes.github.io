@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import type { PortfolioProject } from "@/data/types";
 
 const categoryLabels: Record<string, string> = {
-  fashion: "Fashion",
-  editorial: "Editorial",
-  portrait: "Portrait",
-  commercial: "Commercial",
-  lifestyle: "Lifestyle",
-  fine_art: "Fine Art",
+  "VIDEO & PHOTOGRAPHY": "VÍDEO E FOTOGRAFIA",
+  video_photography: "VÍDEO E FOTOGRAFIA",
+  video: "VÍDEO",
+  photography: "FOTOGRAFIA",
 };
 
 interface PortfolioSliderProps {
