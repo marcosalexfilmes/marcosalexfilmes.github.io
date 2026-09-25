@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { PortfolioProject } from "@/data/types";
@@ -19,6 +19,31 @@ const CARD_CLASSES =
 
 const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const { scrollLeft, scrollWidth, clientWidth } = track;
+    setCanScrollLeft(scrollLeft > 4);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    updateScrollState();
+
+    track.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      track.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [updateScrollState, projects]);
 
   const scrollByCard = (dir: 1 | -1) => {
     const track = trackRef.current;
@@ -84,16 +109,30 @@ const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
       </div>
 
       <button
+        type="button"
         onClick={() => scrollByCard(-1)}
+        disabled={!canScrollLeft}
+        aria-disabled={!canScrollLeft}
         aria-label="Previous projects"
-        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-background/80 backdrop-blur-sm border border-foreground/10 items-center justify-center hover:bg-background transition-all duration-300 hover:scale-105"
+        className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-background/80 backdrop-blur-sm border border-foreground/10 items-center justify-center transition-all duration-300 ${
+          canScrollLeft
+            ? "opacity-100 hover:bg-background hover:scale-105 cursor-pointer"
+            : "opacity-25 pointer-events-none cursor-default"
+        }`}
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
+        type="button"
         onClick={() => scrollByCard(1)}
+        disabled={!canScrollRight}
+        aria-disabled={!canScrollRight}
         aria-label="Next projects"
-        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-11 h-11 rounded-full bg-background/80 backdrop-blur-sm border border-foreground/10 items-center justify-center hover:bg-background transition-all duration-300 hover:scale-105"
+        className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-11 h-11 rounded-full bg-background/80 backdrop-blur-sm border border-foreground/10 items-center justify-center transition-all duration-300 ${
+          canScrollRight
+            ? "opacity-100 hover:bg-background hover:scale-105 cursor-pointer"
+            : "opacity-25 pointer-events-none cursor-default"
+        }`}
       >
         <ChevronRight className="w-5 h-5" />
       </button>
