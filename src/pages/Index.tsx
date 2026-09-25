@@ -166,7 +166,7 @@ const ContactFormCard = () => {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5" autoComplete="off">
           {/* Honeypot field - hidden from users, bots will fill it */}
-          <div className="absolute -left-[9999px]" aria-hidden="true">
+          <div className="sr-only" aria-hidden="true">
             <label htmlFor="cta-website">Website</label>
             <input
               type="text"
@@ -315,7 +315,7 @@ const Index = () => {
       </section>
 
       {/* Featured Portfolio */}
-      <section className="bg-black text-white pt-12 md:pt-16 pb-10 md:pb-12">
+      <section className="bg-black text-white pt-12 md:pt-16 pb-10 md:pb-12 overflow-hidden">
         <div className="container">
           <FadeUp>
             <div className="flex items-end justify-between mb-6">
@@ -342,7 +342,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="pt-8 md:pt-10 pb-12 md:pb-16 bg-black text-white">
+      <section id="about" className="pt-8 md:pt-10 pb-12 md:pb-16 bg-black text-white overflow-hidden">
         <div className="container">
           {/* Section Header */}
           <SectionHeader className="text-center mb-8">
@@ -359,17 +359,13 @@ const Index = () => {
           </SectionHeader>
 
           <div className="grid grid-cols-1 items-center justify-center gap-6 md:grid-cols-[auto_auto] md:gap-6 lg:gap-8">
-            <FadeUp>
+            <FadeUp className="flex justify-center">
               <AboutCarousel />
             </FadeUp>
 
-            {/* Features List - scrollable, matching the carousel height */}
+            {/* Features List - scrollable, matching the carousel height on desktop */}
             <div
-              className="w-[770px] md:h-[600px] md:overflow-hidden"
-              style={{
-                maskImage: 'linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)',
-              }}
+              className="w-full max-w-full md:w-[770px] md:h-[600px] md:overflow-hidden editorial-fade-mask"
             >
               <div className="no-scrollbar flex h-full flex-col overflow-y-auto">
                 <StaggerContainer className="my-auto grid grid-cols-1 gap-5">
@@ -400,7 +396,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="pt-8 md:pt-10 pb-12 md:pb-16 bg-black text-white">
+      <section id="contact" className="pt-8 md:pt-10 pb-12 md:pb-16 bg-black text-white overflow-hidden">
         <div className="container">
           <FadeUp>
             <div className="flex flex-col items-center text-center gap-6">

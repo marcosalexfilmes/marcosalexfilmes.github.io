@@ -82,10 +82,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
     font-weight: 400;
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
@@ -317,5 +321,12 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-fade-mask {
+      mask-image: linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
   }
 }

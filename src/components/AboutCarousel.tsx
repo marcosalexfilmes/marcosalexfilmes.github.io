@@ -48,7 +48,7 @@ const AboutCarousel = () => {
   const image = ABOUT_IMAGES[currentImage];
 
   return (
-    <div className="relative aspect-[3/4] w-72 md:w-80 overflow-hidden rounded-3xl bg-white/5">
+    <div className="relative aspect-[3/4] w-72 max-w-full md:w-80 overflow-hidden rounded-3xl bg-white/5 mx-auto">
       <AnimatePresence initial={false} mode="sync">
         <motion.img
           key={image.src}

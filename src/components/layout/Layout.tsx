@@ -13,7 +13,7 @@ const Layout = ({ children, hasHero = false }: LayoutProps) => {
     <>
       {/* Fixed background layer */}
       <div 
-        className="fixed inset-0 w-screen h-screen -z-10"
+        className="fixed inset-0 w-full h-full -z-10 overflow-hidden"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
@@ -26,9 +26,9 @@ const Layout = ({ children, hasHero = false }: LayoutProps) => {
       </div>
       
       {/* Content layer */}
-      <div className="relative min-h-screen flex flex-col">
+      <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden">
         <Header />
-        <main className={`flex-1 ${hasHero ? "" : "pt-16"}`}>{children}</main>
+        <main className={`flex-1 w-full overflow-x-hidden ${hasHero ? "" : "pt-16"}`}>{children}</main>
         <Footer />
       </div>
     </>
